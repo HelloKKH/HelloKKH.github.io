@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>角落騎士團回憶錄</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+	<link rel="stylesheet" href="css/style.css" media="screen" />
+</head>
+<body>
+	<header class="htmleaf-header">
+		<h1>角落騎士團回憶時間軸 <span>這裏記錄下我們這個角落的點點滴滴</span></h1>
+	</header>
+	<section class="htmleaf-container" >
+		<div id="timeline" style="margin-top: 10px;" >
+			<ul id="dates">
+				<li><a href="#1900">25年7月</a></li>
+				<li><a href="#1930">25年7月</a></li>
+				<li><a href="#1944">25年7月</a></li>
+				<li><a href="#1950">25年7月</a></li>
+				<li><a href="#1971">25年7月</a></li>
+				<li><a href="#1977">25年7月</a></li>
+				<li><a href="#1989">25年7月</a></li>
+				<li><a href="#1999">25年7月</a></li>
+				<li><a href="#2001">25年7月</a></li>
+				<li><a href="#2011">25年7月</a></li>
+			</ul>
+			<ul id="issues">
+				<li id="1900">
+					<h1>初代全家福</h1>
+					<img src="images/初代角落全家福.jpg" width="70%" height="70%"/>
+					
+				</li>
+				<li id="1930">
+					<h1>不知道爲什麽那麽牛逼的CR會獲得新手通關卷</h1>
+					<img src="images/不知道爲什麽那麽牛逼的CR會獲得新手通關卷.png" width="70%" height="70%" />
+					
+				</li>
+				<li id="1944">
+					<h1>初期的小角落</h1>
+					<img src="images/初期的小角落.png" width="70%" height="70%" />
+					
+				</li>
+				<li id="1950">
+					<h1>初期的小角落</h1>
+					<img src="images/202507100143.jpg" width="70%" height="70%" />
+					
+				</li>
+				<li id="1971">
+					<h1>CR被Emma拒絕實錄</h1>
+					<img src="images/202507101734.png" width="70%" height="70%" />
+				</li>
+				<li id="1977">
+					<h1>初期的小角落</h1>
+					<img src="images/202507102039.png" width="70%" height="70%" />
+				</li>
+				<li id="1989">
+					<h1>18X農場</h1>
+					<img src="images/18X農場.png" width="70%" height="70%" />
+				</li>
+				<li id="1999">
+					<h1>要珍惜Amy正常的樣子</h1>
+					<img src="images/要珍惜Amy正常的樣子.png" width="70%" height="70%" />
+				</li>
+				<li id="2001">
+					<h1>第一次團戰</h1>
+					<img src="images/第一次團戰.jpg" width="70%" height="70%" />
+				</li>
+				<li id="2011">
+					<h1>活動包場</h1>
+					<img src="images/活動包場.jpg" width="70%" height="70%" />
+				</li>
+			</ul>
+			<div id="grad_left"></div>
+			<div id="grad_right"></div>
+			<a href="#" id="next">+</a>
+			<a href="#" id="prev">-</a>
+		</div>
+	</section>
+	<footer class="related">
+	    <h3>希望大家會喜歡這個回憶冊:</h3>
+	    <a href="https://discord.gg/WdtUBWafj4">
+		  <img src="images/202508092300騎士團自私釣魚.png" width="300" alt="歡迎加入角落"/>
+		  <h3>歡迎加入角落DC</h3>
+		</a>
+		<a href="-">
+		  <img src="images/20250811邪教現場.png" width="300" alt="XXXXXX"/>
+		  <h3>初代版本，有待更新</h3>
+		</a>
+	</footer>
+	
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery.timelinr-0.9.6.js"></script>
+	<script>
+		$(function(){
+			$().timelinr({
+				arrowKeys: 'true'
+			})
+		});
+	</script>
+</body>
+</html>
