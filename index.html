@@ -1,104 +1,341 @@
-<!doctype html>
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>角落騎士團回憶錄</title>
-	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
-	<link rel="stylesheet" href="css/style.css" media="screen" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跑Online~角落騎士團答題裝置XD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+        .description {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .search-area {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .search-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        input[type="text"] {
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: #7f8c8d;
+        }
+        
+        .results-area {
+            min-height: 200px;
+            border-radius: 8px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .result-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .answer {
+            color: #27ae60;
+            padding-left: 15px;
+            border-left: 3px solid #27ae60;
+        }
+        
+        .no-results {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 40px 0;
+        }
+        
+        .keyword-hint {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .loading .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 手机适配 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin-top: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            input[type="text"] {
+                padding: 12px 12px 12px 40px;
+            }
+            
+            .search-icon {
+                top: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-	<header class="htmleaf-header">
-		<h1>角落騎士團回憶時間軸 <span>這裏記錄下我們這個角落的點點滴滴</span></h1>
-	</header>
-	<section class="htmleaf-container" >
-		<div id="timeline" style="margin-top: 10px;" >
-			<ul id="dates">
-				<li><a href="#1900">25年7月</a></li>
-				<li><a href="#1930">25年7月</a></li>
-				<li><a href="#1944">25年7月</a></li>
-				<li><a href="#1950">25年7月</a></li>
-				<li><a href="#1971">25年7月</a></li>
-				<li><a href="#1977">25年7月</a></li>
-				<li><a href="#1989">25年7月</a></li>
-				<li><a href="#1999">25年7月</a></li>
-				<li><a href="#2001">25年7月</a></li>
-				<li><a href="#2011">25年7月</a></li>
-			</ul>
-			<ul id="issues">
-				<li id="1900">
-					<h1>初代全家福</h1>
-					<img src="images/初代角落全家福.jpg" width="70%" height="70%"/>
-					
-				</li>
-				<li id="1930">
-					<h1>不知道爲什麽那麽牛逼的CR會獲得新手通關卷</h1>
-					<img src="images/不知道爲什麽那麽牛逼的CR會獲得新手通關卷.png" width="70%" height="70%" />
-					
-				</li>
-				<li id="1944">
-					<h1>初期的小角落</h1>
-					<img src="images/初期的小角落.png" width="70%" height="70%" />
-					
-				</li>
-				<li id="1950">
-					<h1>初期的小角落</h1>
-					<img src="images/202507100143.jpg" width="70%" height="70%" />
-					
-				</li>
-				<li id="1971">
-					<h1>CR被Emma拒絕實錄</h1>
-					<img src="images/202507101734.png" width="70%" height="70%" />
-				</li>
-				<li id="1977">
-					<h1>初期的小角落</h1>
-					<img src="images/202507102039.png" width="70%" height="70%" />
-				</li>
-				<li id="1989">
-					<h1>18X農場</h1>
-					<img src="images/18X農場.png" width="70%" height="70%" />
-				</li>
-				<li id="1999">
-					<h1>要珍惜Amy正常的樣子</h1>
-					<img src="images/要珍惜Amy正常的樣子.png" width="70%" height="70%" />
-				</li>
-				<li id="2001">
-					<h1>第一次團戰</h1>
-					<img src="images/第一次團戰.jpg" width="70%" height="70%" />
-				</li>
-				<li id="2011">
-					<h1>活動包場</h1>
-					<img src="images/活動包場.jpg" width="70%" height="70%" />
-				</li>
-			</ul>
-			<div id="grad_left"></div>
-			<div id="grad_right"></div>
-			<a href="#" id="next">+</a>
-			<a href="#" id="prev">-</a>
-		</div>
-	</section>
-	<footer class="related">
-	    <h3>希望大家會喜歡這個回憶冊:</h3>
-	    <a href="https://discord.gg/WdtUBWafj4">
-		  <img src="images/202508092300騎士團自私釣魚.png" width="300" alt="歡迎加入角落"/>
-		  <h3>歡迎加入角落DC</h3>
-		</a>
-		<a href="-">
-		  <img src="images/20250811邪教現場.png" width="300" alt="XXXXXX"/>
-		  <h3>初代版本，有待更新</h3>
-		</a>
-	</footer>
-	
-	<script src="js/jquery-1.11.0.min.js"></script>
-	<script src="js/jquery.timelinr-0.9.6.js"></script>
-	<script>
-		$(function(){
-			$().timelinr({
-				arrowKeys: 'true'
-			})
-		});
-	</script>
+    <div class="container">
+        <header>
+            <h1>JAKKA問題裝置</h1>
+            <p class="description">輸入關鍵字，自動有答案</p>
+        </header>
+        
+        <div class="search-area">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="questionInput" placeholder="輸入問題關鍵字...">
+                <p class="keyword-hint">不需要全部字眼輸入，只需要輸入關鍵的字</p>
+            </div>
+        </div>
+        
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>角落騎士團幫緊你...</p>
+        </div>
+        
+        <div class="results-area" id="resultsContainer">
+            <div class="no-results">
+                <p>輸入關鍵字後，搜索結果將實時顯示在這裡</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>角落騎士團提供 &copy; Kaka</p>
+    </footer>
+
+    <script>
+
+       const questionBank = [
+            { "question": "大學生可以打工", "answer": "O" },
+            { "question": "大學時期有很多機會向教授求助", "answer": "O" },
+            { "question": "大學裡自己課表自己製定", "answer": "O" },
+            { "question": "大學可以不住宿舍", "answer": "O" },
+            { "question": "大學生隨便用圖書館", "answer": "O" },
+            { "question": "大學生所有課程都是面對面", "answer": "X" },
+            { "question": "大學生只要事先規劃好就能輕鬆進行選課申請", "answer": "X" },
+            { "question": "大學課程都是用同樣教材", "answer": "X" },
+            { "question": "修高年級課程能加分", "answer": "X" },
+            { "question": "大學考試都是筆試", "answer": "X" },
+            { "question": "大學生社團活動不反應在學分上", "answer": "O" },
+            { "question": "開卷考試不能看所有資料", "answer": "X" },
+            { "question": "認真教授都會點名", "answer": "O" },
+            { "question": "大學生就不用再考試了", "answer": "X" },
+            { "question": "大學可以雙學位", "answer": "O" },
+            { "question": "大學生和朋友組成學習小組", "answer": "O" },
+            { "question": "考試進行時間，每堂課不同", "answer": "O" },
+            { "question": "大學裡也經常有小組作業", "answer": "O" },
+            { "question": "獨居時必須有規則", "answer": "X" },
+            { "question": "獨居是獨立自主的好方法", "answer": "O" },
+            { "question": "大部分獨居情形都沒有經濟負擔", "answer": "X" },
+            { "question": "獨居時月租不會改變", "answer": "X" },
+            { "question": "獨居可以訓練獨立自住", "answer": "O" },
+            { "question": "自己住，所有家電用品自己買", "answer": "X" },
+            { "question": "獨居時發生事情要自己負責", "answer": "O" },
+            { "question": "獨居時可以體驗經濟自立", "answer": "O" },
+            { "question": "獨立套房通常會提供冰箱及洗衣機", "answer": "O" },
+            { "question": "獨居的話，和家人的聯繫頻率一定會減少", "answer": "X" },
+            { "question": "嬰兒便便", "answer": "O" },
+            { "question": "雙胞胎育兒反而更容易", "answer": "O" },
+            { "question": "嬰兒一出生就可以區分五顏六色", "answer": "X" },
+            { "question": "肚子的嬰兒能感受到媽媽的感情", "answer": "O" },
+            { "question": "嬰兒開始走路時必須單獨哄睡", "answer": "X" },
+            { "question": "孩子學的第一個單詞是爸爸", "answer": "X" },
+            { "question": "所有母親分娩時,母乳分泌都很高", "answer": "X" },
+            { "question": "育兒時必須用有機食材", "answer": "X" }
+        ];
+
+        // DOM元素
+        const questionInput = document.getElementById('questionInput');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const loadingElement = document.querySelector('.loading');
+
+      
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                const context = this;
+                const args = arguments;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    func.apply(context, args);
+                }, wait);
+            };
+        }
+
+        
+        function showLoading() {
+            loadingElement.style.display = 'block';
+            resultsContainer.innerHTML = '';
+        }
+
+       
+        function hideLoading() {
+            loadingElement.style.display = 'none';
+        }
+
+        // 搜索功能
+        function searchAnswers() {
+            const keyword = questionInput.value.trim().toLowerCase();
+            
+        
+            showLoading();
+            
+           
+            setTimeout(() => {
+                if (!keyword) {
+                    showNoResults("請輸入關鍵字");
+                    hideLoading();
+                    return;
+                }
+                
+            
+                const matchedQuestions = questionBank.filter(item => 
+                    item.question.toLowerCase().includes(keyword)
+                );
+                
+                // 显示结果
+                if (matchedQuestions.length > 0) {
+                    displayResults(matchedQuestions);
+                } else {
+                    showNoResults("沒有找到相關問題，請嘗試其他關鍵字");
+                }
+                
+                hideLoading();
+            }, 300);
+        }
+
+        // 显示结果
+        function displayResults(results) {
+            resultsContainer.innerHTML = '';
+            
+            results.forEach(item => {
+                const resultElement = document.createElement('div');
+                resultElement.className = 'result-item';
+                resultElement.innerHTML = `
+                    <div class="question">${item.question}</div>
+                    <div class="answer">${item.answer}</div>
+                `;
+                resultsContainer.appendChild(resultElement);
+            });
+        }
+
+        // 显示无结果信息
+        function showNoResults(message) {
+            resultsContainer.innerHTML = `
+                <div class="no-results">
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+
+       
+        questionInput.addEventListener('input', debounce(searchAnswers, 500));
+
+        // 初始显示提示
+        showNoResults("輸入關鍵字後，搜索結果將實時顯示在這裡");
+    </script>
 </body>
 </html>
